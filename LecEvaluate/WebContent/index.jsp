@@ -1,17 +1,51 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>�츮�� ù ��° ������</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- 반응형 웹 플랫폼 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+	<title>강의평가 웹사이트</title>
+	<!-- 부트스트랩 CSS 추가 -->
+	<link rel="stylesheet"  href="./css/bootstrap.min.css">
+	<!-- 커스텀 CSS 추가 -->
+	<link rel="stylesheet"  href="./css/custom.css">
 </head>
 <body>
-	Hello World!
-	<form action = "./userJoinAction.jsp" method ="post"> <!-- ���� -->
-		<input type="text" name="userID">
-		<input type="password" name="userPassword">
-		<input type="submit" value="ȸ������">
-	</form>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class ="navbar-brand" href="index.jsp">강의평가 웹 사이트</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div id="navbar" class ="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="index.jsp">메인</a>
+				</li>
+				<li class="nav-item dropdown"> <!-- 눌렀을 때 목록 나오는 버튼 dropdown -->
+					<a class="nav-link dropdown-toggle" id="dropdown"  data-toggle="dropdown" >
+						회원관리
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown" ><!--버튼을 눌렀을때  -->
+						<a class="dropdown-item" href="#">로그인</a>
+						<a class="dropdown-item" href="#">회원가입</a>
+						<a class="dropdown-item" href="#">로그아웃</a>
+					</div>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="내용을 입력하세요." aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+			</form>
+		</div>
+	</nav>
+	<!-- 제이쿼리 자바스크립트 추가하기 -->
+	<script src= "./js/jquery.min.js"></script>
+	<!-- 파퍼 자바스크립트 추가하기 -->
+	<script src= "./js/popper.js"></script>
+	<!-- 부트스크랩 자바스크립트 추가하기 -->
+	<script src= "./js/bootstrap.min.js"></script>
 </body>
 </html>
