@@ -21,7 +21,7 @@
 		
 		<div id="navbar" class ="collapse navbar-collapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
+				<li class="nav-item">
 					<a class="nav-link" href="index.jsp">메인</a>
 				</li>
 				<li class="nav-item dropdown"> <!-- 눌렀을 때 목록 나오는 버튼 dropdown -->
@@ -29,7 +29,7 @@
 						회원관리
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown" ><!--버튼을 눌렀을때  -->
-						<a class="dropdown-item" href="userLogin.jsp">로그인</a>
+						<a class="dropdown-item active" href="userLogin.jsp">로그인</a>
 						<a class="dropdown-item" href="userJoin.jsp">회원가입</a>
 						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
 					</div>
