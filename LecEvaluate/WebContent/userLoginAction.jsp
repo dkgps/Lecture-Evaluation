@@ -9,7 +9,7 @@
 	String userID=null;
 	String userPassword =null;
 	if(request.getParameter("userID")!=null){
-		userID = request.getParameter("userID");
+		userID = (String) request.getParameter("userID");
 	}
 	if(request.getParameter("userPassword")!=null){
 		userPassword = request.getParameter("userPassword");
