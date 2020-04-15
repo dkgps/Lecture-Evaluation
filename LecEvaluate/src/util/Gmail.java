@@ -8,6 +8,6 @@ public class Gmail extends Authenticator {
 	@Override
 	protected PasswordAuthentication getPasswordAuthentication() {
 		return new PasswordAuthentication("tlsdkgps","dkgus^^7");
-		// °ü¸®ÀÚÀÇ ±¸±Û ¾ÆÀÌµğ, ºñ¹Ğ¹øÈ£
+		// ê´€ë¦¬ì gë©”ì¼ ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸
 	}
 }

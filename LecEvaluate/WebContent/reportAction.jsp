@@ -26,7 +26,6 @@
 		script.close();
 		return;
 	}
-
 	
 	request.setCharacterEncoding("UTF-8");
 	String reportTitle = null;
@@ -47,7 +46,6 @@
 		script.close();
 		return;
 	}
-
 	String host = "http://localhost:8080/LecEvaluation/";
 	String from = "tlsdkgps@gmail.com";//구글 이메일 계정
 	String to = "tlsdkgps@gmail.com";

@@ -3,7 +3,7 @@ package util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-//DB¿Í ¿¬µ¿
+
 public class DatabaseUtil {
 	
 	public static Connection getConnection() {

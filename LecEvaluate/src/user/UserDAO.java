@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 import util.DatabaseUtil;
 
-//DB Á¢±Ù
+//DB ì ‘ê·¼
 public class UserDAO {
 	
 	public int login(String userID, String userPassword) {
@@ -17,18 +17,18 @@ public class UserDAO {
 		
 		try {
 			conn = DatabaseUtil.getConnection();
-			pstmt = conn.prepareStatement(SQL); //ÁØºñ
+			pstmt = conn.prepareStatement(SQL); //ì¤€ë¹„
 			pstmt.setString(1, userID);
-			rs = pstmt.executeQuery(); //Á¶È¸½Ã
+			rs = pstmt.executeQuery(); //ì¡°íšŒì‹œ
 			
-			if(rs.next()) { //½ÇÇà°á°ú Á¸ÀçÇÒ °æ¿ì
+			if(rs.next()) { //ì‹¤í–‰ê²°ê³¼ ì¡´ì¬í•  ê²½ìš°
 				if(rs.getString(1).equals(userPassword)) {
-					return 1; //·Î±×ÀÎ ¼º°ø
+					return 1; //ë¡œê·¸ì¸ ì„±ê³µ
 				}else {
-					return 0; //ºñ¹Ğ¹øÈ£ Æ²¸²
+					return 0; //ë¹„ë°€ë²ˆí˜¸ í‹€ë¦¼
 				}
 			}
-			return -1; //¾ÆÀÌµğ ¾øÀ½
+			return -1; //ì•„ì´ë”” ì—†ìŒ
 	
 		}catch (Exception e){
 			e.printStackTrace();
@@ -42,8 +42,8 @@ public class UserDAO {
 			try{if(rs != null) {rs.close();}} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}//Á¢±Ù ÀÚ¿ø ÇØÁö
-		return -2; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		}//ì ‘ê·¼ ìì› í•´ì§€
+		return -2; //ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜
 	}
 	
 	public int join(UserDTO user) {
@@ -54,13 +54,13 @@ public class UserDAO {
 		
 		try {
 			conn = DatabaseUtil.getConnection();
-			pstmt = conn.prepareStatement(SQL); //ÁØºñ
+			pstmt = conn.prepareStatement(SQL); //ì¤€ë¹„
 			pstmt.setString(1, user.getUserID());
 			pstmt.setString(2, user.getUserPassword());
 			pstmt.setString(3, user.getUserEmail());
 			pstmt.setString(4, user.getUserEmailHash());
 			return pstmt.executeUpdate(); //insert, update, delete
-			// 1: ¼º°ø
+			// 1: ì„±ê³µ
 			
 		}catch (Exception e){
 			e.printStackTrace();
@@ -74,11 +74,11 @@ public class UserDAO {
 			try{if(rs != null) {rs.close();}} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}//Á¢±Ù ÀÚ¿ø ÇØÁö
-		return -1; // È¸¿ø°¡ÀÔ ½ÇÆĞ
+		}//ì ‘ê·¼ ìì› í•´ì§€
+		return -1; // íšŒì›ê°€ì… ì‹¤íŒ¨
 	}
 	
-	//À¯ÀúÀÇ ÀÌ¸ŞÀÏ ¹İÈ¯
+	//ìœ ì €ì˜ ì´ë©”ì¼ ë°˜í™˜
 	public String getUserEmail(String userID) {
 		String SQL = "select userEmail from user where userID= ?";
 		Connection conn = null;
@@ -87,7 +87,7 @@ public class UserDAO {
 			
 		try {
 			conn = DatabaseUtil.getConnection();
-			pstmt = conn.prepareStatement(SQL); //ÁØºñ
+			pstmt = conn.prepareStatement(SQL); //ì¤€ë¹„
 			pstmt.setString(1, userID);
 			rs=pstmt.executeQuery();
 				
@@ -106,13 +106,13 @@ public class UserDAO {
 			try{if(rs != null) {rs.close();}} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}//Á¢±Ù ÀÚ¿ø ÇØÁö
-		return null; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		}//ì ‘ê·¼ ìì› í•´ì§€
+		return null; // ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜
 	}
 		
 	
 	
-	//ÀÌ¸ŞÀÏ ÀÎÁõ È®ÀÎ
+	//ì´ë©”ì¼ ì¸ì¦ í™•ì¸
 	public boolean getUserEmailChecked(String userID) {
 		String SQL = "select userEmailChecked from USER where userId=?";
 		Connection conn = null;
@@ -121,12 +121,12 @@ public class UserDAO {
 		
 		try {
 			conn = DatabaseUtil.getConnection();
-			pstmt = conn.prepareStatement(SQL); //ÁØºñ
+			pstmt = conn.prepareStatement(SQL); //ì¤€ë¹„
 			pstmt.setString(1, userID);
 			rs = pstmt.executeQuery(); 
 			
 			if(rs.next()) {
-				return rs.getBoolean(1); //Ã¹¹øÂ° ¼Ó¼º°ª ¹İÈ¯
+				return rs.getBoolean(1); //ì²«ë²ˆì§¸ ì†ì„±ê°’ ë°˜í™˜
 			}
 			
 		}catch (Exception e){
@@ -141,14 +141,14 @@ public class UserDAO {
 			try{if(rs != null) {rs.close();}} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}//Á¢±Ù ÀÚ¿ø ÇØÁö
-		return false; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		}//ì ‘ê·¼ ìì› í•´ì§€
+		return false; // ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜
 	}
 	
 	
 	
 	
-	//Æ¯Á¤ »ç¿ëÀÚÀÇ ÀÌ¸ŞÀÏ ÀÎÁõ ¼öÇà
+	//íŠ¹ì • ì‚¬ìš©ìì˜ ì´ë©”ì¼ ì¸ì¦ ìˆ˜í–‰
 	public boolean setUserEmailChecked(String userID) {
 		String SQL = "update user set userEmailChecked = true where userID=?";
 		Connection conn = null;
@@ -157,10 +157,10 @@ public class UserDAO {
 		
 		try {
 			conn = DatabaseUtil.getConnection();
-			pstmt = conn.prepareStatement(SQL); //ÁØºñ
+			pstmt = conn.prepareStatement(SQL); //ì¤€ë¹„
 			pstmt.setString(1, userID);
 			pstmt.executeUpdate();
-			return true; //ÀÌ¹Ì ÀÎÁõÀ» ÇÑ »óÅÂ¶óµµ ´Ù½Ã ÀÎÁõ °¡´É	
+			return true; //ì´ë¯¸ ì¸ì¦ì„ í•œ ìƒíƒœë¼ë„ ë‹¤ì‹œ ì¸ì¦ ê°€ëŠ¥	
 		}catch (Exception e){
 			e.printStackTrace();
 		}finally {
@@ -173,7 +173,7 @@ public class UserDAO {
 			try{if(rs != null) {rs.close();}} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}//Á¢±Ù ÀÚ¿ø ÇØÁö
-		return false; // µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		}//ì ‘ê·¼ ìì› í•´ì§€
+		return false; // ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜
 	}
 }
